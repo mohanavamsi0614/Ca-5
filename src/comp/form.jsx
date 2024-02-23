@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Nav from "./nav";
 
 function Forms() {
     const [form,setform]=useState({name:"",email:"",password:"",rep:"",sub:false})
@@ -49,15 +50,18 @@ function Forms() {
             console.log("going")
             setTimeout(() => {
                 nav("/",{state:form.name})
-            }, 5000);
+            }, 2000);
         }
     }
     return(
+        <>
+        <Nav/>
         <div className="form">
+
         <div>
             <div className="serah">
                 {Object.keys(error)==0 && form.sub?
-                (<div className="green"><h2>Submited</h2><h3>Please Wait !</h3></div>)
+                (<div className="green"><h2>Submited succesfully</h2><h3>Please Wait !</h3></div>)
                 : form.sub && (<div className="red"><h3>Something is fishy🐟</h3></div>)}
             </div>
             <form>
@@ -72,14 +76,14 @@ function Forms() {
 
                 <label>Email:</label>
 
-                <input placeholder="email" 
+                <input placeholder="Email" 
                 name="email" 
                 value={form.email} 
                 onChange={(e)=>changer(e.target)}/>
 
                 <p>{error.email}</p>
 
-                <label>password:</label>
+                <label>Password:</label>
 
                 <input placeholder="Password" 
                 name="password" value={form.password} 
@@ -101,6 +105,7 @@ function Forms() {
             <button onClick={submit} className="sub">Submit</button>
             </div>
             </div>
+            </>
     )
 }
 export default Forms;

@@ -1,38 +1,39 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import balaya from '../assets/no.jpg'
+import { useLocation } from "react-router-dom";
+import Nav from "./nav";
 function Books() {
     const [books,setbooks]=useState([])
     const [book,setbook]=useState("")
     const [load,setload]=useState(true)
-    const nav=useNavigate()
+    const loc=useLocation()
+    const name=loc.state||"User"
+    console.log(books)
     useEffect(()=>{
-        axios.get("https://reactnd-books-api.udacity.com/books",{headers:{"Authorization":"Vamsi"}})
+        axios.get("https://reactnd-books-api.udacity.com/books",{headers:
+        {"Authorization":"whatever-you-want"}})
         .then((r)=>{
             setbooks(r.data.books)
             setload(false)
         })
     },[])
-    const loc=useLocation()
-    const name=loc.state||"User"
-    console.log(books)
     function changer(e) {
-        setbook(e)
-        
+        setbook(e)   
     }
     return(
         <>
+       <Nav name={name}/>
+        <div className="serah">
 
-        <div className="nav">
-        <img src={balaya} className="bala"/>
-            <h2>Welcome {name}!😎</h2>
-            <button onClick={()=>nav("/register")} className="reg">Register</button>
+        <input value={book} 
+        placeholder="🔍Search"
+         onChange={(e)=>changer(e.target.value)} 
+         className="input"/>
+
         </div>
-        <div className="serah"><input value={book} placeholder="🔍Search" onChange={(e)=>changer(e.target.value)} className="input"/></div>
     <div className="self">
         <div className="bookself">
-        {!load?books.filter((i)=>{return i.title.toLowerCase().startsWith(book) || i.title.toLowerCase().includes(book)}).map((i)=>{
+        {!load?books.filter((i)=>{return i.title.toLowerCase().startsWith(book)}).map((i)=>{
             return(
                 <div key={i.id} className="book">
                 <img src={i.imageLinks.smallThumbnail}/>
@@ -42,7 +43,7 @@ function Books() {
                 <a href={i.previewLink} target="_blank"><button className="read">Read now📖</button></a>
                 </div>
             )
-        }):(<h1>loading</h1>)}
+        }):(<h1>Loading..</h1>)}
         </div>
     </div>
         </>
