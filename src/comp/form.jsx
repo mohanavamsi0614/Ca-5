@@ -48,6 +48,7 @@ function Forms() {
         setform({...form,sub:true})
         if(Object.keys(error)==0){
             console.log("going")
+            console.log(form)
             setTimeout(() => {
                 nav("/",{state:form.name})
             }, 2000);

@@ -8,7 +8,6 @@ function Books() {
     const [load,setload]=useState(true)
     const loc=useLocation()
     const name=loc.state||"User"
-    console.log(books)
     useEffect(()=>{
         axios.get("https://reactnd-books-api.udacity.com/books",{headers:
         {"Authorization":"whatever-you-want"}})
@@ -38,8 +37,8 @@ function Books() {
                 <div key={i.id} className="book">
                 <img src={i.imageLinks.smallThumbnail}/>
                 <h3>{i.title}</h3>
-                <p className="grey">{i.subtitle||"Good Book"} ⭐{i.averageRating?i.averageRating:0}({i.ratingsCount?i.ratingsCount:0})</p>
-                {/* <p></p> */}
+                <p className="grey">{i.subtitle||"Good Book"} ⭐{i.averageRating?
+                i.averageRating:0}({i.ratingsCount?i.ratingsCount:0})</p>               
                 <a href={i.previewLink} target="_blank"><button className="read">Read now📖</button></a>
                 </div>
             )
