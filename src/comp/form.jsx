@@ -53,34 +53,54 @@ function Forms() {
         }
     }
     return(
+        <div className="form">
         <div>
-        {Object.keys(error)==0 && form.sub? (<div><h1>Submited</h1><h3>Please Wait !</h3></div>) : form.sub && (<h1>Some thing is fishy</h1>)}
+            <div className="serah">
+                {Object.keys(error)==0 && form.sub?
+                (<div className="green"><h2>Submited</h2><h3>Please Wait !</h3></div>)
+                : form.sub && (<div className="red"><h3>Something is fishy🐟</h3></div>)}
+            </div>
             <form>
                 <label>Name:</label>
-                <input placeholder="Name" name="name" value={form.name} onChange={(e)=>changer(e.target)}/>
+
+                <input placeholder="Name" 
+                name="name" 
+                value={form.name} 
+                onChange={(e)=>changer(e.target)}/>
+
                 <p>{error.name}</p>
+
                 <label>Email:</label>
-                <input placeholder="email" name="email" value={form.email} onChange={(e)=>changer(e.target)}/>
+
+                <input placeholder="email" 
+                name="email" 
+                value={form.email} 
+                onChange={(e)=>changer(e.target)}/>
+
                 <p>{error.email}</p>
-                
+
                 <label>password:</label>
-                <div>
-                <input placeholder="Password" name="password" value={form.password} type="password" ref={df} onChange={(e)=>changer(e.target)}/><span onClick={op}>👁️</span>
+
+                <input placeholder="Password" 
+                name="password" value={form.password} 
+                type="password" ref={df} 
+                onChange={(e)=>changer(e.target)}/>
+                <p onClick={op}>👁️</p>
+
                 <p>{error.password}</p>
-                </div>
+
                 <label>Repeat Your Password:</label>
-                <input placeholder="repeat your password" name="rep" value={form.rep} onChange={(e)=>changer(e.target)}/>
+
+                <input placeholder="repeat your password" 
+                name="rep" 
+                value={form.rep} 
+                onChange={(e)=>changer(e.target)}/>
+
                 <p>{error.rep}</p>
             </form>
-
-            <button onClick={submit}>Submit</button>
-        </div>
+            <button onClick={submit} className="sub">Submit</button>
+            </div>
+            </div>
     )
 }
 export default Forms;
-
-// Name: The name should not be greater than 30 characters and less than 3 characters.
-// Email: The email must be a valid email. A valid email address ( for this assessment ) is that address, which has an “@” symbol.
-// Password: The password should be at least 10 characters long, with at least one special character.
-// Repeat your password: The value of this field must match the value of the Password field.
-// Register butto

@@ -1,24 +1,94 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+input{
+  height: 30px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: gainsboro;
   text-align: center;
+  color: black;
 }
-.self{
+.sub{
+  width: 300px;
+  background-color: green;
+  color: white;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  margin: 20px;
+  margin-left: 25%;
+}
+.read{
+  width: 100px;
+  height: 40px;
+  place-content: center;
+  background-color:white;
+  border: none;
+  border-radius: 10px;
+  color: black;
+}
+a{
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 5px;
+  text-decoration: none;
+
+}
+.grey{
+  color: grey;
+}
+.serah{
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.input{
+  width: 500px;
+  margin-top: 30px;
+  font-size: xx-large;
+  font-weight: 600;
+}
+.green{
+  padding: 5px;
+  background-color: rgba(112, 176, 112, 0.653);
+  border: 1px solid green;
+  font-size: x-large;
+  border-radius: 20px;
+  margin: 20px;
+  text-align: center;
+  width: 400px;
+}
+.red{
+  padding: 0px;
+  background-color: rgba(202, 99, 99, 0.617);
+  border: 1px solid red;
+  font-size: x-large;
+  border-radius: 20px;
+  margin: 20px;
+  text-align: center;
+  width: 400px;
+}
+.reg{
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
 }
 .nav{
   width: 100%;
   background-color: black;
-  position: absolute;
-  top:0px;
   height: 70px;
   display: flex;
-  justify-content:stretch;
-
+  justify-content:space-evenly;
+  align-items: center;
+  padding:5px;
+  overflow: hidden;
+}
+.bala{
+  width: 10%;
+  height: auto;
 }
 .bookself{
   display: grid;
@@ -26,14 +96,26 @@
   gap:10px;
   justify-content: center;
   align-items: center;
-  margin: 50px;
   width: 100%;
+}
+.self{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 100px ;
 }
 .book{
   width: 50%; 
   background-color: black;
   box-shadow: 3px 5px 3px 2px white;
   padding: 10px;
+}
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 img{
   width: 200px;
@@ -42,12 +124,13 @@ img{
 form{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
   text-align: left;
   background-color: white;
   border-radius: 20px;
-  padding:20px;
+  padding:30px;
   color: black;
 }
 p{
