@@ -32,7 +32,7 @@ function Books() {
         </div>
     <div className="self">
         <div className="bookself">
-        {!load?books.filter((i)=>{return i.title.toLowerCase().startsWith(book)}).map((i)=>{
+        {!load?books.filter((i)=>{return i.title.toLowerCase().startsWith(book)|| i.title.toLowerCase().includes(book)}).map((i)=>{
             return(
                 <div key={i.id} className="book">
                 <img src={i.imageLinks.smallThumbnail}/>
